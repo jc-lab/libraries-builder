@@ -1,0 +1,19 @@
+ExternalProject_Add(build_grpc
+        ${GRPC_FETCH_INFO}
+        BUILD_ALWAYS TRUE
+        INSTALL_DIR  ${BUILDING_INSTALL_PREFIX}
+        DEPENDS build_zlib build_protobuf
+        CMAKE_ARGS
+            ${_PROPAGATE_BUILD_TYPE}
+            -DCMAKE_MODULE_PATH=${BUILDING_CMAKE_MODULE_PATH}
+            -DCMAKE_INSTALL_PREFIX=${BUILDING_INSTALL_PREFIX}
+            -DBUILDING_INSTALL_PREFIX=${BUILDING_INSTALL_PREFIX}
+            -DBUILDING_LIBRARY_ZLIB_LINK_TYPE=static
+            -DBUILDING_LIBRARY_OPENSSL_LINK_TYPE=static
+            -DgRPC_INSTALL=ON
+            -DgRPC_ZLIB_PROVIDER=package
+            -DgRPC_PROTOBUF_PROVIDER=package
+            -DgRPC_SSL_PROVIDER=package
+            -DProtobuf_USE_STATIC_LIBS=ON
+            -DgRPC_MSVC_STATIC_RUNTIME=${BUILDING_USE_MSVC_STATIC_RUNTIME}
+        )
