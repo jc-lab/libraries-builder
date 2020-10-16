@@ -4,9 +4,8 @@ string(REPLACE ";" "${NEW_LIST_SEPARATOR}" _SQLCIPHER_FETCH_INFO "${SQLCIPHER_FE
 
 ExternalProject_Add(build_sqlcipher
         BUILD_ALWAYS TRUE
-        PREFIX     ${CMAKE_CURRENT_BINARY_DIR}/project-sqlcipher
-        DOWNLOAD_COMMAND ""
-        SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/project-sqlcipher
+        GIT_REPOSITORY https://github.com/jc-lab/sqlcipher-cmake.git
+        GIT_TAG        7f860d8b481154e3a1868c7843889fd2950c06c5
         INSTALL_DIR  ${BUILDING_INSTALL_PREFIX}
         LIST_SEPARATOR "${NEW_LIST_SEPARATOR}"
         CMAKE_ARGS
