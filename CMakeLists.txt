@@ -62,4 +62,6 @@ include(grpc.cmake)
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/cmake/ DESTINATION "cmake")
 install(DIRECTORY ${BUILDING_INSTALL_PREFIX}/ DESTINATION ".")
 
+set(CMAKE_INSTALL_UCRT_LIBRARIES 1)
+set(CMAKE_INSTALL_DEBUG_LIBRARIES $<CONFIG:Debug>)
 include(InstallRequiredSystemLibraries)

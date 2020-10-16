@@ -3,6 +3,7 @@ ExternalProject_Add(build_protobuf
         BUILD_ALWAYS TRUE
         SOURCE_SUBDIR cmake
         INSTALL_DIR  ${BUILDING_INSTALL_PREFIX}
+        PATCH_COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/fixed-projects/protobuf-module.cmake.in ./cmake/protobuf-module.cmake.in
         DEPENDS build_zlib
         CMAKE_ARGS
         ${_PROPAGATE_BUILD_TYPE}

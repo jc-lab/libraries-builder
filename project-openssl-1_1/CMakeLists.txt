@@ -26,3 +26,8 @@ target_link_libraries(openssl-1_1-dummy-shared
         openssl_crypto_static
         openssl_ssl_static
         )
+
+INSTALL(TARGETS
+        openssl-1_1-dummy-static
+        openssl-1_1-dummy-shared
+        RUNTIME DESTINATION "tmp")
