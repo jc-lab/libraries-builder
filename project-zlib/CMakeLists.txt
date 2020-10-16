@@ -19,4 +19,17 @@ if (NOT fetch_zlib_POPULATED)
     add_subdirectory(${fetch_zlib_SOURCE_DIR} ${fetch_zlib_BINARY_DIR})
 endif ()
 
+target_include_directories(zlib
+        PUBLIC
+        $<INSTALL_INTERFACE:include>
+        $<BUILD_INTERFACE:${fetch_zlib_SOURCE_DIR}>
+        $<BUILD_INTERFACE:${fetch_zlib_BINARY_DIR}>
+        )
+target_include_directories(zlibstatic
+        PUBLIC
+        $<INSTALL_INTERFACE:include>
+        $<BUILD_INTERFACE:${fetch_zlib_SOURCE_DIR}>
+        $<BUILD_INTERFACE:${fetch_zlib_BINARY_DIR}>
+        )
+
 install(TARGETS zlibstatic EXPORT zlibTargets)
