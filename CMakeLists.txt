@@ -31,6 +31,15 @@ set(OPENSSL_1_1_FETCH_INFO
         URL https://www.openssl.org/source/openssl-1.1.1h.tar.gz
         URL_HASH SHA256=5c9ca8774bd7b03e5784f26ae9e9e6d749c9da2438545077e6b3d755a06595d9
         )
+
+set(SQLCIPHER_VERSION v4.4.0)
+set(SQLCIPHER_FETCH_INFO
+        URL      https://github.com/sqlcipher/sqlcipher/archive/v4.4.0.tar.gz
+        URL_HASH SHA256=0924b2ae1079717954498bda78a30de20ce2a6083076b16214a711567821d148
+        )
+
+set(FINDJNI_JAVA_HOME_X86_32 "C:/Program Files (x86)/ojdkbuild/java-1.8.0-openjdk-1.8.0.265-1")
+set(FINDJNI_JAVA_HOME_X86_64 "C:/Program Files/ojdkbuild/java-1.8.0-openjdk-1.8.0.265-1")
 ##### CONFIG END #####
 
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
@@ -58,6 +67,7 @@ set(BUILDING_INSTALL_PREFIX ${CMAKE_CURRENT_BINARY_DIR}/output)
 set(BUILDING_CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 include(zlib.cmake)
 include(openssl-1_1.cmake)
+include(sqlcipher.cmake)
 include(protobuf.cmake)
 include(grpc.cmake)
 
