@@ -33,8 +33,6 @@ set(OPENSSL_1_1_FETCH_INFO
         )
 ##### CONFIG END #####
 
-set(CMAKE_INSTALL_PREFIX "D:/workspace/libraries-builder/out2")
-
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 if("${CMAKE_GENERATOR}" MATCHES "(Win64|IA64)")
@@ -52,6 +50,10 @@ else()
     set(_PROPAGATE_BUILD_TYPE "-DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}")
 endif()
 
+if (MSVC)
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/msvc-toolset-version.txt.in ${CMAKE_CURRENT_BINARY_DIR}/msvc-toolset-version.txt @ONLY)
+endif()
+
 set(BUILDING_INSTALL_PREFIX ${CMAKE_CURRENT_BINARY_DIR}/output)
 set(BUILDING_CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 include(zlib.cmake)
@@ -61,6 +63,10 @@ include(grpc.cmake)
 
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/cmake/ DESTINATION "cmake")
 install(DIRECTORY ${BUILDING_INSTALL_PREFIX}/ DESTINATION ".")
+
+if (MSVC)
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/msvc-toolset-version.txt DESTINATION ".")
+endif()
 
 set(CMAKE_INSTALL_UCRT_LIBRARIES 1)
 set(CMAKE_INSTALL_DEBUG_LIBRARIES $<CONFIG:Debug>)
