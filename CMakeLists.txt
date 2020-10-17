@@ -38,6 +38,10 @@ set(SQLCIPHER_FETCH_INFO
         URL      https://github.com/sqlcipher/sqlcipher/archive/v4.4.0.tar.gz
         URL_HASH SHA256=0924b2ae1079717954498bda78a30de20ce2a6083076b16214a711567821d148
         )
+set(SQLITE_JDBC_FETCH_INFO
+        GIT_REPOSITORY https://github.com/xerial/sqlite-jdbc.git
+        GIT_TAG        0b789de7d884566325db0b4ddb3b3175c926fdca # 3.32.3.2
+        )
 
 set(FINDJNI_JAVA_HOME_X86_32 "C:/Program Files (x86)/ojdkbuild/java-1.8.0-openjdk-1.8.0.265-1")
 set(FINDJNI_JAVA_HOME_X86_64 "C:/Program Files/ojdkbuild/java-1.8.0-openjdk-1.8.0.265-1")
