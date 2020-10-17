@@ -6,7 +6,7 @@ string(REPLACE ";" "${NEW_LIST_SEPARATOR}" _SQLITE_JDBC_FETCH_INFO "${SQLITE_JDB
 ExternalProject_Add(build_sqlcipher
         BUILD_ALWAYS TRUE
         GIT_REPOSITORY https://github.com/jc-lab/sqlcipher-cmake.git
-        GIT_TAG        d8e488e7c87630e61e2573d2007becb8d6b31a79
+        GIT_TAG        68c3fdc8e3eaf1c19e63fd32cd94cae8bb9adcf3
         INSTALL_DIR  ${BUILDING_INSTALL_PREFIX}
         LIST_SEPARATOR "${NEW_LIST_SEPARATOR}"
         CMAKE_ARGS
